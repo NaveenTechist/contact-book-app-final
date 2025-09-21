@@ -44,7 +44,7 @@ app.post('/contacts', async (req, res) => {
         const newId = lastData ? lastData.id + 1 : 1
         const newData = new Data({ id: newId, name, email, phone })
         await newData.save()
-        res.status(200)
+        res.status(200).json({ message: "New contact added" })
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
@@ -61,6 +61,21 @@ app.delete('/contacts/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
+})
+
+app.get('/contacts/:id', async (req, res) => {
+    const id = req.params.id
+    try {
+        const contact = await Data.findOne({ id: id })
+        if (contact) {
+            res.status(200).json(contact)
+        } else {
+            res.status(404).json({ message: "Contact Not Found" })
+        }
+    } catch {
+        res.status(500).json({ message: 'User Not Found' })
+    }
+
 })
 
 
