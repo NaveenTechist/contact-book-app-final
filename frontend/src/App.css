@@ -1,0 +1,40 @@
+* {
+    font-family: "Roboto";
+    cursor: pointer;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Remove tap highlight and focus outlines from all elements */
+button,
+input,
+a,
+div,
+span {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-focus-ring-color: transparent;
+    outline: none;
+}
+
+/* Remove focus outline from specific interactive elements */
+button:focus,
+input:focus,
+a:focus,
+.hidden-btn:focus,
+.search-input:focus {
+    outline: none;
+    box-shadow: none;
+}
